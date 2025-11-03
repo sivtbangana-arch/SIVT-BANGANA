@@ -26,14 +26,38 @@
     .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(16,24,40,0.06);}
     .courses li{margin:8px 0}
 
-    .section{padding:40px 0}
-    .two-col{display:grid;grid-template-columns:1fr 360px;gap:28px}
+    .section{padding:10px 0}
+    .two-col{display:grid;grid-template-columns:5fr 360px;gap:28px}
     .faculty-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
     .faculty-card{display:flex;gap:12px;align-items:center}
-    .avatar{width:56px;height:56px;border-radius:8px;background:#f3f4f6;display:inline-flex;align-items:center;justify-content:center;color:#374151}
+    .avatar{width:56px;height:46px;border-radius:8px;background:#f3f4f6;display:inline-flex;align-items:center;justify-content:center;color:#374151}
 
-    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-    .gallery img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+    .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4/3; /* Keeps consistent height ratio */
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
 
     form .row{display:flex;gap:10px}
     input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6edf3}
@@ -204,20 +228,26 @@ SIVT continues to empower the local community through education, skills, and opp
     </section>
 
     <section class="section" id="gallery">
-      <h2>Gallery</h2>
-      <div class="gallery">
-	    <img src="diwali.jpeg" alt="diwali celebration">
-	    <img src="navratri.jpeg" alt="navratri celebration">
-		<img src="navratri1.jpeg" alt="navratri celebration1">
-        <img src="lab.jpg" alt="Lab session">
-        <img src="class.jpg" alt="Students learning">
-        <img src="event.jpeg" alt="Event">
-        <img src="event1.jpg" alt="Event1">
-        <img src="certificate.jpeg" alt="certificate distribution">
-        <img src="plantation.jpeg" alt="plantation">
-      
-	  </div>
-    </section>
+  <h2>Gallery</h2>
+  <div class="gallery">
+    <img src="file:///C:/Users/WELCOME/Desktop/sivt%20bangana/annual%20function.jpg" alt="Annual Function">
+    <img src="students.jpg" alt="Students">
+    <img src="diwali.jpeg" alt="Diwali Celebration">
+    <img src="navratri.jpeg" alt="Navratri Celebration">
+    <img src="navratri1.jpeg" alt="Navratri Celebration 2">
+    <img src="lab.jpg" alt="Lab Session">
+    <img src="class.jpg" alt="Classroom">
+    <img src="event.jpeg" alt="Event">
+    <img src="event1.jpg" alt="Event 2">
+    <img src="certificate.jpeg" alt="Certificate Distribution">
+    <img src="plantation.jpeg" alt="Plantation Drive">
+    <!-- ✅ Add more images easily below 
+    <img src="new1.jpg" alt="New Image 1">
+    <img src="new2.jpg" alt="New Image 2">
+    <img src="new3.jpg" alt="New Image 3">-->
+  </div>
+</section>
+
 
     <section class="section" id="admissions">
       <h2>Admissions & Online Application</h2>
@@ -252,7 +282,7 @@ SIVT continues to empower the local community through education, skills, and opp
           <h3>Notices & Events</h3>
           <ul id="notices">
            <marquee direction="down"scrollamount="2"> <ul><li>Admission for new batch — Starts: 01 Nov 2025</li></ul>
-           <ul><li>ANNUAL FUNCTION HEAD OFFICE SIVT GHUMARWIN — 01 Nov 2025</li></ul></marquee>
+           </marquee>
           </ul>
         </aside>
       </div>
