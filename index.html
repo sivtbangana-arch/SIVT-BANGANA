@@ -257,28 +257,29 @@ SIVT continues to empower the local community through education, skills, and opp
       <div class="two-col">
         <div class="card">
           <p>Fill the form to apply. We'll contact you to confirm seat availability and guide you through fee payment and document submission.</p>
-          <form id="admissionForm"action="https://script.google.com/macros/s/AKfycbzjKZ9COMvw4JJnSsIEbi92A8HIaTR42LLHoxAETLxqZqZEM6t0m4LoguAD2xfjaH0Zvw/exec">
-            <div class="row">
-              <input type="text" id="fullname" placeholder="Full name" required />
-              <input type="text" id="phoneInput" placeholder="Mobile number" required />
-            </div>
-            <div class="row">
-              <input type="email" id="emailInput" placeholder="Email address" />
-              <select id="courseSelect">
-			  <option value="C-DAC">--SELECT--</option>
-                <option value="NIELIT O-Level">NIELIT 'O' Level</option>
-				<option value="C-DAC">DMCA 'C-DAC'</option>
-                <option value="CCC">Basic Computer (CCC)</option>
-                <option value="Tally">Tally & Accounting</option>
-                <option value="Web">Web Design (Short)</option>
-              </select>
-            </div>
-            <textarea id="notes" placeholder="Any message or questions" rows="3"></textarea>
-            <div style="margin-top:10px;display:flex;gap:10px;align-items:center">
-              <button type="submit">Submit Application</button>
-              <div id="formMsg" style="color:var(--muted);font-size:13px"></div>
-            </div>
-          </form>
+         <form id="admissionForm" action="https://script.google.com/macros/s/AKfycbwsZNnQBFPcdyyDfcrlOuelmJfLpMNcHbi1-PY1T0pZhW6diyZ6vLnkqGc9QxALKADLHg/exec">
+  <div class="row">
+    <input type="text" id="fullname" name="fullname" placeholder="Full name" required />
+    <input type="text" id="phoneInput" name="phoneInput" placeholder="Mobile number" required />
+  </div>
+  <div class="row">
+    <input type="email" id="emailInput" name="emailInput" placeholder="Email address" />
+    <select id="courseSelect" name="courseSelect">
+      <option value="">--SELECT--</option>
+      <option value="NIELIT O-Level">NIELIT 'O' Level</option>
+      <option value="C-DAC">DMCA 'C-DAC'</option>
+      <option value="CCC">Basic Computer (CCC)</option>
+      <option value="Tally">Tally & Accounting</option>
+      <option value="Web">Web Design (Short)</option>
+    </select>
+  </div>
+  <textarea id="notes" name="notes" placeholder="Any message or questions" rows="3"></textarea>
+  <div style="margin-top:10px;display:flex;gap:10px;align-items:center">
+    <button type="submit">Submit Application</button>
+    <div id="formMsg" style="color:var(--muted);font-size:13px"></div>
+  </div>
+</form>
+
         </div>
 
         <aside class="card">
@@ -331,7 +332,7 @@ SIVT continues to empower the local community through education, skills, and opp
     const formData = new FormData(form);
 
     // ✅ Your Google Apps Script Web App URL
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzjKZ9COMvw4JJnSsIEbi92A8HIaTR42LLHoxAETLxqZqZEM6t0m4LoguAD2xfjaH0Zvw/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwsZNnQBFPcdyyDfcrlOuelmJfLpMNcHbi1-PY1T0pZhW6diyZ6vLnkqGc9QxALKADLHg/exec';
 
     // Send data to Google Apps Script
     fetch(scriptURL, { method: 'POST', body: formData })
