@@ -258,7 +258,7 @@ SIVT continues to empower the local community through education, skills, and opp
       <div class="two-col">
         <div class="card">
           <p>Fill the form to apply. We'll contact you to confirm seat availability and guide you through fee payment and document submission.</p>
-         <form id="admissionForm" action="https://script.google.com/macros/s/AKfycbwsZNnQBFPcdyyDfcrlOuelmJfLpMNcHbi1-PY1T0pZhW6diyZ6vLnkqGc9QxALKADLHg/exec">
+         <form id="admissionForm" method="POST" action="https://script.google.com/macros/s/AKfycbyA8hKQKBGlU4EIIhiL2p8Puzj8lJVVWczRYAs7yFck76bR_RuLTydCEbuaEBKszvZwNA/exec">
   <div class="row">
     <input type="text" id="fullname" name="fullname" placeholder="Full name" required />
     <input type="text" id="phoneInput" name="phoneInput" placeholder="Mobile number" required />
@@ -274,6 +274,18 @@ SIVT continues to empower the local community through education, skills, and opp
       <option value="Web">Web Design (Short)</option>
     </select>
   </div>
+  <div class="row">
+	<select id="feedbackSelect" name="feedbackSelect">
+	<option value="">--How Did You Come To Our Institute?--</option>
+        <option value="student">Through a Student</option>
+        <option value="social Media">Through Social Media</option>
+        <option value="Teacher">Through Teacher</option>
+        <option value="Advertisement">Through Advertisement</option>
+        <option value="Personally">Visited Personally</option>
+        <option value="Friend">Family/Friend Suggestion</option>
+        <option value="Other">Other</option>
+    </select>
+  </div>
   <textarea id="notes" name="notes" placeholder="Any message or questions" rows="3"></textarea>
   <div style="margin-top:10px;display:flex;gap:10px;align-items:center">
     <button type="submit">Submit Application</button>
@@ -286,7 +298,8 @@ SIVT continues to empower the local community through education, skills, and opp
         <aside class="card">
           <h3>Notices & Events</h3>
           <ul id="notices">
-           <ul><li>Admission for new batch — Starts: 01 Nov 2025</li></ul>
+           <ul><li>Admission for new batch — Starts: 01 JAN 2026</li></ul>
+		   <ul><li>FREE PERONALITY DEVELOPMENT CLASSES EVERY SATURDAY AT SIVT BANGANA</li></ul>
           </ul>
         </aside>
       </div>
@@ -320,7 +333,7 @@ SIVT continues to empower the local community through education, skills, and opp
 </footer>
 <script>
   // Handle form submission and send data to Google Sheets
-  const form = document.getElementById('admissionForm');
+  /*const form = document.getElementById('admissionForm');
   const formMsg = document.getElementById('formMsg');
 
   form.addEventListener('submit', e => {
@@ -330,9 +343,40 @@ SIVT continues to empower the local community through education, skills, and opp
     const formData = new FormData(form);
 
     // ✅ Your Google Apps Script Web App URL
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwsZNnQBFPcdyyDfcrlOuelmJfLpMNcHbi1-PY1T0pZhW6diyZ6vLnkqGc9QxALKADLHg/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycby64k5VHV7lBb0bCfRV4loZqeCPXT9uf7UiH0Hj5r6C6nN2nvuDNk7gLD-wqgxjDwgkow/exec';
 
     // Send data to Google Apps Script
+    fetch(scriptURL, { method: 'POST', body: formData })
+      .then(() => {
+        formMsg.textContent = '✅ Application submitted successfully!';
+        form.reset();
+        setTimeout(() => formMsg.textContent = '', 4000);
+      })
+      .catch(err => {
+        console.error('Error!', err);
+        formMsg.textContent = '❌ Error submitting form. Try again.';
+      });
+  });*/
+  <script>
+  const form = document.getElementById('admissionForm');
+  const formMsg = document.getElementById('formMsg');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const formData = new FormData();
+
+    // Match HTML → Apps Script variable names
+    formData.append("fullname", document.getElementById("fullname").value);
+    formData.append("phone", document.getElementById("phoneInput").value);
+    formData.append("email", document.getElementById("emailInput").value);
+    formData.append("course", document.getElementById("courseSelect").value);
+    formData.append("feedbackSelect", document.getElementById("feedbackSelect").value);
+    formData.append("message", document.getElementById("notes").value);
+
+    // YOUR SCRIPT URL
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyA8hKQKBGlU4EIIhiL2p8Puzj8lJVVWczRYAs7yFck76bR_RuLTydCEbuaEBKszvZwNA/exec';
+
     fetch(scriptURL, { method: 'POST', body: formData })
       .then(() => {
         formMsg.textContent = '✅ Application submitted successfully!';
